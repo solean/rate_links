@@ -1,0 +1,75 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+from rate.models import Link
+
+# Create your views here.
+def index(request):
+	context_dict = {}
+	query = request.GET.get('q')
+	if query:
+		query.strip()
+		context_dict['query'] = query
+
+		if query.startswith('http://'):
+			link = Link.objects.all().filter(url=query)
+		else:
+			query = 'http://' + query
+			link = Link.objects.all().filter(url=query)
+
+		if not link:
+			return render(request, 'rate/create_link.html', context_dict)
+
+		link = link[0]
+		context_dict['link'] = link
+		return render(request, 'rate/link.html', context_dict)
+
+	return render(request, 'rate/index.html', context_dict)
+
+
+def about(request):
+	return render(request, 'rate/about.html', {})
+
+
+def link(request, link_title):
+	context_dict = {}
+	link = Link.objects.get(title=link_title)
+
+	if request.method == 'POST':
+		if request.POST.get('rating') and link:
+			r = int(request.POST.get('rating'))
+
+			num_ratings = link.num_ratings
+
+			avg_rating = link.avg_rating
+
+			new_rating = ((avg_rating * num_ratings) + r) / (num_ratings + 1)
+			link.avg_rating = new_rating
+			link.num_ratings = num_ratings + 1
+
+		if request.POST.get('like'):
+			link.likes += 1
+
+		link.save()
+
+	if link:
+		context_dict['link'] = link
+		context_dict['link_title'] = link_title
+		return render(request, 'rate/link.html', context_dict)
+	else:
+		return HttpResponse("Invalid link")
+
+
+def create_link(request):
+	context_dict = {}
+	if request.method == 'POST':
+		title = request.POST.get('title')
+		url = request.POST.get('url')
+		if title and url:
+			link = Link(title=title, url=url)
+			link.save()
+			context_dict['link'] = link
+			return render(request, 'rate/link.html', context_dict)
+		else:
+			context_dict['errors'] = 'Please enter both a title and url for your link.'
+
+	return render(request, 'rate/create_link.html', context_dict)
