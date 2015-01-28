@@ -2,9 +2,9 @@
 
 {% block body %}
 	<h1>Have a link to rate?</h1>
-	<p>Just paste the link below!</p><br />
+	<p>Just paste the link below!</p><br>
 	<form method="get" action="/rate/">
 		<input type="text" name="q" id="id_q" value="{{ query }}"/>
-		<input type="submit" value="Enter"/>
+		<button class="btn btn-primary" type="submit" value="Enter">Enter</button>
 	</form>
 {% endblock %}
