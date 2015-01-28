@@ -1,8 +1,10 @@
-<h1>Have a link to rate?</h1>
-<p>Just paste the link below!</p><br />
-<form method="get" action="/rate/">
-	<input type="text" name="q" id="id_q" value="{{ query }}"/>
-	<input type="submit" value="Enter"/>
-</form>
-<hr>
-<a href="{% url 'about' %}">About</a>
+{% extends 'rate/base.html' %}
+
+{% block body %}
+	<h1>Have a link to rate?</h1>
+	<p>Just paste the link below!</p><br />
+	<form method="get" action="/rate/">
+		<input type="text" name="q" id="id_q" value="{{ query }}"/>
+		<input type="submit" value="Enter"/>
+	</form>
+{% endblock %}

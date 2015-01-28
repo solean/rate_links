@@ -1,7 +1,11 @@
-<h3>This is a new link! You will need to create an entry for it.</h3><br />
-<form method="post" action="/rate/create_link/">
-	{% csrf_token %}
-	Title: <input type="text" name="title"/><br />
-	URL: <input type="text" name="url"/><br />
-	<input type="submit" value="Submit"/>
-</form>
+{% extends 'rate/base.html' %}
+
+{% block body %}
+	<h3>This is a new link! You will need to create an entry for it.</h3><br />
+	<form method="post" action="/rate/create_link/">
+		{% csrf_token %}
+		Title: <input type="text" name="title"/><br />
+		URL: <input type="text" name="url"/><br />
+		<input type="submit" value="Submit"/>
+	</form>
+{% endblock %}

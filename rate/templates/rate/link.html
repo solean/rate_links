@@ -1,26 +1,27 @@
-<h1>{{ link.title }}</h1>
-<ul>
-	<li><a href="{{ link.url }}">{{ link.url }}</a></li>
-	<li>Average Rating: {{ link.avg_rating }}</li>
+{% extends 'rate/base.html' %}
+
+{% block body %}
+	<h1>{{ link.title }}</h1>
 	<ul>
-		<li>({{ link.num_ratings }} ratings)</li>
+		<li><a href="{{ link.url }}">{{ link.url }}</a></li>
+		<li>Average Rating: {{ link.avg_rating }}</li>
+		<ul>
+			<li>({{ link.num_ratings }} ratings)</li>
+		</ul>
+		<li>{{ link.likes }} likes</li>
 	</ul>
-	<li>{{ link.likes }} likes</li>
-</ul>
 
-<form method="post" action="/rate/link/{{ link.title }}/">
-	{% csrf_token %}
-	<input type="radio" name="rating" value="0">   0</input>
-	<input type="radio" name="rating" value="1">   1</input>
-	<input type="radio" name="rating" value="2">   2</input>
-	<input type="radio" name="rating" value="3">   3</input>
-	<input type="radio" name="rating" value="4">   4</input>
-	<input type="radio" name="rating" value="5">   5</input>
+	<form method="post" action="/rate/link/{{ link.title }}/">
+		{% csrf_token %}
+		<input type="radio" name="rating" value="0">   0</input>
+		<input type="radio" name="rating" value="1">   1</input>
+		<input type="radio" name="rating" value="2">   2</input>
+		<input type="radio" name="rating" value="3">   3</input>
+		<input type="radio" name="rating" value="4">   4</input>
+		<input type="radio" name="rating" value="5">   5</input>
 
-	<input type="checkbox" name="like">Like</button>
+		<input type="checkbox" name="like">Like</button>
 
-	<input type="submit" value="Submit">
-</form>
-
-<hr>
-<a href="/rate/">Home</a>
+		<input type="submit" value="Submit">
+	</form>
+{% endblock %}
