@@ -4,7 +4,8 @@
 	<h3>Top 10 Highest Rated Links:</h3>
 	<ol>
 	{% for link in links %}
-		<li style="font-size: 16px;"><a href="{{ link.url }}">{{ link.title }}</a> : {{ link.avg_rating }}</li>
+		<li style="font-size: 16px;"><a href="/rate/link/{{ link.title }}">
+			{{ link.title }}</a> : {{ link.avg_rating }}</li>
 	{% endfor %}
 	</ol>
 {% endblock %}
