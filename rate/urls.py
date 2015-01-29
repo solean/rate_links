@@ -6,4 +6,5 @@ urlpatterns = patterns('',
         url(r'^about/$', views.about, name='about'),
         url(r'^link/(?P<link_title>[\w\-]+)/$', views.link),
         url(r'^create_link/$', views.create_link, name='create_link'),
+        url(r'^view_links/$', views.view_links, name='view_links'),
 )

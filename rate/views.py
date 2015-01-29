@@ -73,3 +73,11 @@ def create_link(request):
 			context_dict['errors'] = 'Please enter both a title and url for your link.'
 
 	return render(request, 'rate/create_link.html', context_dict)
+
+
+def view_links(request):
+	context_dict = {}
+	highest_rated = Link.objects.all().order_by('-avg_rating')[:10]
+	context_dict['links'] = highest_rated
+
+	return render(request, 'rate/view_links.html', context_dict)
