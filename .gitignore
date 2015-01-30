@@ -4,6 +4,7 @@ db.sqlite3
 local_settings.py
 /media/
 /static/
+staticfiles
 *.log
 .Python
 venv/
