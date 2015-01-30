@@ -1,5 +1,6 @@
 from datetime import datetime
 from django.db import models
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 class Link(models.Model):
@@ -9,6 +10,11 @@ class Link(models.Model):
 	num_ratings = models.IntegerField(default=0)
 	likes = models.IntegerField(default=0)
 	date_added = models.DateTimeField(auto_now_add=True, default=datetime.now())
+	title_slug = models.SlugField()
+
+	def save(self, *args, **kwargs):
+		self.title_slug = slugify(self.title)
+		super(Link, self).save(*args, **kwargs)
 
 	def as_dict(self):
 		d = {'title': self.title,

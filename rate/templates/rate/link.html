@@ -11,7 +11,7 @@
 		<li>{{ link.likes }} likes</li>
 	</ul>
 
-	<form method="post" action="/rate/link/{{ link.title }}/">
+	<form method="post" action="/rate/link/{{ link_title_slug }}/">
 		{% csrf_token %}
 		<input type="radio" name="rating" value="0">   0</input>
 		<input type="radio" name="rating" value="1">   1</input>

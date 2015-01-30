@@ -30,9 +30,9 @@ def about(request):
 	return render(request, 'rate/about.html', {})
 
 
-def link(request, link_title):
+def link(request, link_title_slug):
 	context_dict = {}
-	link = Link.objects.get(title=link_title)
+	link = Link.objects.get(title_slug=link_title_slug)
 
 	if request.method == 'POST':
 		if request.POST.get('rating') and link:
@@ -53,7 +53,8 @@ def link(request, link_title):
 
 	if link:
 		context_dict['link'] = link
-		context_dict['link_title'] = link_title
+		#context_dict['link_title'] = link.title
+		context_dict['link_title_slug'] = link.title_slug
 		return render(request, 'rate/link.html', context_dict)
 	else:
 		return HttpResponse("Invalid link")
