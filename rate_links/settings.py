@@ -58,15 +58,27 @@ WSGI_APPLICATION = 'rate_links.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
+# DATABASES = {
+#      'default': {
+#          'ENGINE': 'django.db.backends.sqlite3',
+#          'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#      }
+# }
+
 DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'daslq3omj20r6a',
+        'USER': 'lueamqewkgovuf',
+        'PASSWORD': 'Mj3ew2AaY4ULGmsRPLqyuI1QYA',
+        'HOST': 'ec2-50-19-219-80.compute-1.amazonaws.com',
+        'PORT': '5432',
+        'URL': 'postgres://lueamqewkgovuf:Mj3ew2AaY4ULGmsRPLqyuI1QYA@ec2-50-19-219-80.compute-1.amazonaws.com:5432/daslq3omj20r6a'
+    }
 }
 
-import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+# import dj_database_url
+# DATABASES['default'] = dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
