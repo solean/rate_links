@@ -6,4 +6,4 @@ I'll be adding functionality and revamping the interface soon.
 
 Update: The app is now running on Heroku. You can see it (still basic, still working on it) at:
 
-http://http://guarded-cliffs-2828.herokuapp.com/rate/
+http://guarded-cliffs-2828.herokuapp.com/rate/
