@@ -51,12 +51,12 @@ WSGI_APPLICATION = 'rate_links.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd2mjo0ir7hoaqm',
-        'USER': 'cvasbwngaxrqhi',
-        'PASSWORD': 'wIILvMTLrPcHrH4fyDeN5QOCpd',
-        'HOST': 'ec2-54-197-238-8.compute-1.amazonaws.com',
+        'NAME': 'dc9s67rdcpgvtf',
+        'USER': 'cgzrnoqdzgmkci',
+        'PASSWORD': '_yWmack1cnb7GoIXRA8dNSFvXe',
+        'HOST': 'ec2-54-225-135-30.compute-1.amazonaws.com',
         'PORT': '5432',
-        'URL': 'postgres://cvasbwngaxrqhi:wIILvMTLrPcHrH4fyDeN5QOCpd@ec2-54-197-238-8.compute-1.amazonaws.com:5432/d2mjo0ir7hoaqm'
+        'URL': 'postgres://cgzrnoqdzgmkci:_yWmack1cnb7GoIXRA8dNSFvXe@ec2-54-225-135-30.compute-1.amazonaws.com:5432/dc9s67rdcpgvtf'
     }
 }
 
