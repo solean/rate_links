@@ -9,4 +9,4 @@ staticfiles
 .Python
 venv/
 lib/
-rate_links/settings.py
+settings.py
