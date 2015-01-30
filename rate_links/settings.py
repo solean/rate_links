@@ -54,7 +54,7 @@ DATABASES = {
         'NAME': 'dc9s67rdcpgvtf',
         'USER': 'cgzrnoqdzgmkci',
         'PASSWORD': '_yWmack1cnb7GoIXRA8dNSFvXe',
-        'HOST': 'ec2-54-197-238-8.compute-1.amazonaws.com',
+        'HOST': 'ec2-54-225-135-30.compute-1.amazonaws.com',
         'PORT': '5432',
         'URL': 'postgres://cgzrnoqdzgmkci:_yWmack1cnb7GoIXRA8dNSFvXe@ec2-54-225-135-30.compute-1.amazonaws.com:5432/dc9s67rdcpgvtf'
     }
