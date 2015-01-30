@@ -1,13 +1,3 @@
-"""
-Django settings for rate_links project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.7/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.7/ref/settings/
-"""
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -58,22 +48,15 @@ WSGI_APPLICATION = 'rate_links.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-# DATABASES = {
-#       'default': {
-#           'ENGINE': 'django.db.backends.sqlite3',
-#           'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#       }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'daslq3omj20r6a',
-        'USER': 'lueamqewkgovuf',
-        'PASSWORD': 'Mj3ew2AaY4ULGmsRPLqyuI1QYA',
-        'HOST': 'ec2-50-19-219-80.compute-1.amazonaws.com',
+        'NAME': 'dc9s67rdcpgvtf',
+        'USER': 'cgzrnoqdzgmkci',
+        'PASSWORD': '_yWmack1cnb7GoIXRA8dNSFvXe',
+        'HOST': 'ec2-54-197-238-8.compute-1.amazonaws.com',
         'PORT': '5432',
-        'URL': 'postgres://lueamqewkgovuf:Mj3ew2AaY4ULGmsRPLqyuI1QYA@ec2-50-19-219-80.compute-1.amazonaws.com:5432/daslq3omj20r6a'
+        'URL': 'postgres://cgzrnoqdzgmkci:_yWmack1cnb7GoIXRA8dNSFvXe@ec2-54-225-135-30.compute-1.amazonaws.com:5432/dc9s67rdcpgvtf'
     }
 }
 
