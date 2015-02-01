@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from rate.models import Link
 
 # Create your views here.
@@ -17,7 +17,7 @@ def index(request):
 			link = Link.objects.all().filter(url=query)
 
 		if not link:
-			return render(request, 'rate/create_link.html', context_dict)
+			return HttpResponseRedirect('create_link')
 
 		link = link[0]
 		context_dict['link'] = link
@@ -53,7 +53,6 @@ def link(request, link_title_slug):
 
 	if link:
 		context_dict['link'] = link
-		#context_dict['link_title'] = link.title
 		context_dict['link_title_slug'] = link.title_slug
 		return render(request, 'rate/link.html', context_dict)
 	else:
@@ -66,10 +65,11 @@ def create_link(request):
 		title = request.POST.get('title')
 		url = request.POST.get('url')
 		if title and url:
+			if not url.startswith('http://'):
+				url = 'http://' + url
 			link = Link(title=title, url=url)
 			link.save()
-			context_dict['link'] = link
-			return render(request, 'rate/link.html', context_dict)
+			return HttpResponseRedirect('/rate/link/' + link.title_slug)
 		else:
 			context_dict['errors'] = 'Please enter both a title and url for your link.'
 
