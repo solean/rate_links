@@ -78,7 +78,11 @@ def create_link(request):
 
 def view_links(request):
 	context_dict = {}
+
 	highest_rated = Link.objects.all().order_by('-avg_rating')[:10]
-	context_dict['links'] = highest_rated
+	context_dict['rated_links'] = highest_rated
+
+	most_liked = Link.objects.all().order_by('-likes')[:10]
+	context_dict['liked_links'] = most_liked
 
 	return render(request, 'rate/view_links.html', context_dict)
