@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from rate.models import Link
 
-# Create your views here.
+
 def index(request):
 	context_dict = {}
 	query = request.GET.get('q')
@@ -21,9 +21,14 @@ def index(request):
 
 		link = link[0]
 		context_dict['link'] = link
-		return render(request, 'rate/link.html', context_dict)
+		return render(request, 'rate/index2.html', context_dict)
 
-	return render(request, 'rate/index.html', context_dict)
+	highest_rated = Link.objects.all().order_by('-avg_rating')[:10]
+	most_liked = Link.objects.all().order_by('-likes')[:10]
+	context_dict['highest_rated'] = highest_rated
+	context_dict['most_liked'] = most_liked
+
+	return render(request, 'rate/index2.html', context_dict)
 
 
 def about(request):
@@ -76,13 +81,4 @@ def create_link(request):
 	return render(request, 'rate/create_link.html', context_dict)
 
 
-def view_links(request):
-	context_dict = {}
 
-	highest_rated = Link.objects.all().order_by('-avg_rating')[:10]
-	context_dict['rated_links'] = highest_rated
-
-	most_liked = Link.objects.all().order_by('-likes')[:10]
-	context_dict['liked_links'] = most_liked
-
-	return render(request, 'rate/view_links.html', context_dict)

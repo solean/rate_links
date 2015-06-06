@@ -1,0 +1,41 @@
+{% extends 'rate/base2.html' %}
+{% load staticfiles %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'rate/css/index.css' %}">
+	<script src="{% static 'rate/js/index.js' %}"></script>
+{% endblock %}
+
+{% block front %}
+	<div class="front">
+		<h1 id="ask">Have a link to rate?</h1>
+	</div>
+	<div class="front">
+		<form name="link" action="/rate/" method="get">
+			<input id="link-input" type="text" value="Just paste it here!">
+			<input id="link-submit" type="submit" value="Submit">
+		</form>
+	</div>
+{% endblock %}
+
+{% block content_left %}
+	<div id="white-left">
+		<h2 class="list-header">Highest Rated Links</h2>
+		<ul id="link-list">
+		{% for link in highest_rated %}
+			<li class="{% cycle 'list-el-one' 'list-el-two' %}">{{ link.avg_rating }} - <b class="li-border"><a href="/rate/link/{{ link.title_slug }}">{{ link.title }}</a></b></li>
+		{% endfor %}
+		</ul>
+	</div>
+{% endblock %}
+
+{% block content_right %}
+	<div id="blue-right">
+		<h2 class="list-header">Most Liked Links</h2>
+		<ul id="link-list">
+		{% for link in most_liked %}
+			<li class="{% cycle 'list-el-one' 'list-el-three' %}">{{ link.likes }} - <b class="li-border"><a href="/rate/link/{{ link.title_slug }}">{{ link.title }}</a></b></li>
+		{% endfor %}
+		</ul>
+	</div>
+{% endblock %}

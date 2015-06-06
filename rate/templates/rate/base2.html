@@ -1,0 +1,32 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Linx</title>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:200,500,400' rel='stylesheet' type='text/css'>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		{% block head %}{% endblock %}
+	</head>
+	<body>
+		<div class="first">
+			<div id="logo">
+				Linx
+				<!-- <div class="menu">X</div> -->
+			</div>
+			<hr id="logo-line">
+			{% block front %}{% endblock %}
+		</div>
+		<div class="second">
+			{% block content_left %}{% endblock %}
+			{% block content_right %}{% endblock %}
+		</div>
+		<div class="footer">
+			<div id="footer-container">
+				<p><a href="{% url 'about' %}">About</a></p>
+				<p><a href="http://chrisschnabel.com">Contact</a></p>
+				<p><a href="https://github.com/solean/rate_links">Source</a></p>
+			</div>
+		</div>
+	</body>
+</html>
