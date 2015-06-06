@@ -1,17 +1,21 @@
 {% extends 'rate/base2.html' %}
+{% load staticfiles %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'rate/css/about.css' %}">
+	<script src="{% static 'rate/js/about.js' %}"></script>
+{% endblock %}
 
 {% block front %}
-	<h1>About</h1>
-	<p>Submit a link and rate it! Pretty self-explanatory.
-	 You can also view submitted links and rate those.</p>
-	<br>
+	<div id="about-container">
+		<h1 id="about-header">About</h1>
+		<p id="about">Submit a link and rate it! Pretty self-explanatory.
+		 You can also view submitted links and rate those. Thinking about adding 
+		 user and commenting functionality at some point.</p>
 
-	<h3>Contact info:</h3>
-	<ul>
-			<li><a href="http://solean.github.io">Landing page</a></li>
-			<li><a href="mailto:chrisjschnabel@gmail.com">email me!</a></li>
-	</ul>
-
-	<br><br>
-	<a href="http://github.com/solean" class="btn btn-lg btn-default">My Github</a>
+		<h2>Me?</h2>
+		<button class="button1" id="website-button">Website</button>
+		<button class="button1" id="email-button">Email</button>
+		<button class="button1" id="github-button">Github</button>
+	</div>
 {% endblock %}
