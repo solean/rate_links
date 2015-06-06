@@ -1,27 +1,42 @@
 {% extends 'rate/base2.html' %}
+{% load staticfiles %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'rate/css/link.css' %}">
+{% endblock %}
 
 {% block front %}
-	<h1>{{ link.title }}</h1>
-	<ul>
-		<li><a href="{{ link.url }}">{{ link.url }}</a></li>
-		<li>Average Rating: {{ link.avg_rating }}</li>
-		<ul>
-			<li>({{ link.num_ratings }} ratings)</li>
-		</ul>
-		<li>{{ link.likes }} likes</li>
-	</ul>
-
-	<form method="post" action="/rate/link/{{ link_title_slug }}/">
-		{% csrf_token %}
-		<input type="radio" name="rating" value="0">   0</input>
-		<input type="radio" name="rating" value="1">   1</input>
-		<input type="radio" name="rating" value="2">   2</input>
-		<input type="radio" name="rating" value="3">   3</input>
-		<input type="radio" name="rating" value="4">   4</input>
-		<input type="radio" name="rating" value="5">   5</input>
-
-		<input type="checkbox" name="like">Like</button>
-
-		<button class="btn btn-primary" type="submit" value="Submit">Submit</button>
-	</form>
+  <div id="link-container">
+		<div id="title-stuff">
+			<h1 id="link-title">{{ link.title }}</h1>
+			<a href="{{ link.url }}" id="link-url">{{ link.url }}</a>
+			<hr id="divider">
+		</div>
+		<div id="rating">
+			<div class="circle">
+				<p id="circle-rating">{{ link.avg_rating }}</p>
+			</div>
+			<form method="post" action="/rate/link/{{ link_title_slug }}/">
+				{% csrf_token %}
+				<div id="radios">
+					<label class="radio-label">5</label><input type="radio" name="rating" value="5"><br>
+					<label class="radio-label">4</label><input type="radio" name="rating" value="4"><br>
+					<label class="radio-label">3</label><input type="radio" name="rating" value="3"><br>
+					<label class="radio-label">2</label><input type="radio" name="rating" value="2"><br>
+					<label class="radio-label">1</label><input type="radio" name="rating" value="1">
+					<br>
+					<button class="button1" id="rate-button" type="submit">Rate</button>
+				</div>
+			</form>
+		</div>
+		<div id="like-stuff">
+			<h2 id="like-rank">#{{ like_rank }} Most Liked Link</h2>
+			<div id="num-likes">( {{ link.likes }} likes )</div>
+			<br>
+			<form method="post" name="like" action="/rate/link/{{ link_title_slug }}/">
+				{% csrf_token %}
+				<button class="button1" type="submit" name="like" value="Submit">Like</button>
+			</form>
+		</div>
+	</div>
 {% endblock %}

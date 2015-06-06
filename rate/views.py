@@ -39,29 +39,30 @@ def link(request, link_title_slug):
 	context_dict = {}
 	link = Link.objects.get(title_slug=link_title_slug)
 
+	if not link:
+		return HttpResponse("Invalid link")
+
 	if request.method == 'POST':
-		if request.POST.get('rating') and link:
+		if request.POST.get('rating'):
 			r = int(request.POST.get('rating'))
 
 			num_ratings = link.num_ratings
-
 			avg_rating = link.avg_rating
 
-			new_rating = ((avg_rating * num_ratings) + r) / (num_ratings + 1)
+			new_rating = round(((avg_rating * num_ratings) + r) / (num_ratings + 1), 2)
 			link.avg_rating = new_rating
 			link.num_ratings = num_ratings + 1
-
-		if request.POST.get('like'):
+		elif request.POST.get('like'):
 			link.likes += 1
 
 		link.save()
 
-	if link:
-		context_dict['link'] = link
-		context_dict['link_title_slug'] = link.title_slug
-		return render(request, 'rate/link.html', context_dict)
-	else:
-		return HttpResponse("Invalid link")
+	like_rank = list(Link.objects.all().order_by('-likes')).index(link) + 1
+	context_dict['like_rank'] = like_rank
+	context_dict['link'] = link
+	context_dict['link_title_slug'] = link.title_slug
+
+	return render(request, 'rate/link.html', context_dict)
 
 
 def create_link(request):

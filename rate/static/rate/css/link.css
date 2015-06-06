@@ -1,0 +1,79 @@
+#link-container {
+	text-align: center;
+}
+
+#title-stuff {
+	padding-bottom: 3%;
+}
+
+#link-title {
+	font-size: 54px;
+	font-family: 'Raleway';
+	margin-bottom: 0;
+}
+
+#link-url {
+	color: #1F2421;
+}
+
+#divider {
+	border-style: solid;
+	border-color: white;
+	width: 60%;
+}
+
+ul {
+	padding: 0;
+	list-style-type: none;
+}
+
+#link-button {
+	margin-top: 1%;
+	font-size: 16px;
+}
+
+.circle {
+	float: left;
+	margin-top: 2%;
+	margin-left: 40%;
+	margin-right: 0;
+	padding-right: 0;
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	background-color: transparent;
+	border-style: solid;
+	border-color: white;
+}
+
+#circle-rating {
+	font-size: 36px;
+	font-style: italic;
+	margin-top: 27%;
+}
+
+#rating {
+	padding-bottom: 5%;
+	margin-bottom: 12%;
+}
+
+#radios {
+	float: right;
+	margin-right: 40%;
+}
+
+.radio-label {
+	font-size: 22px;
+}
+
+#rate-button {
+	margin-top: 10%;
+}
+
+#like-rank {
+	font-family: Gill Sans;
+	font-size: 36px;
+	font-style: italic;
+	font-weight: 500;
+	margin-bottom: 0px;
+}
