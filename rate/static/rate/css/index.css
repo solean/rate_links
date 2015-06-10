@@ -9,17 +9,6 @@
 	margin-bottom: 20px;
 }
 
-#link-input {
-	padding-left: 8px;
-	height: 30px;
-	width: 400px;
-	border-width: 0;
-	border-radius: 2px;
-	font-size: 16px;
-	color: #73BA9B;
-	margin-right: 5px;
-}
-
 #link-submit {
 	font-family: 'Raleway';
 	font-size: 18px;

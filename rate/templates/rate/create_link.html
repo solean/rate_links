@@ -1,12 +1,21 @@
-{% extends 'rate/base.html' %}
+{% extends 'rate/base2.html' %}
+{% load staticfiles %}
 
-{% block body %}
-	<h3>This is a new link! You will need to create an entry for it.</h3><br />
-	<form method="post" action="/rate/create_link/">
-		{% csrf_token %}
-		Title: <input type="text" name="title"/><br>
-		URL: <input type="text" name="url"/><br>
-		<br>
-		<button class="btn btn-primary" type="submit" value="Submit">Submit</button>
-	</form>
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'rate/css/create_link.css' %}">
+{% endblock %}
+
+{% block front %}
+	<div id="create-link-container">
+		<h3 id="create-link-header">This is a new link! You will need to create an entry for it.</h3><br />
+		<div id="form-div">
+			<form method="post" action="/rate/create_link/">
+				{% csrf_token %}
+				<div>Title: <input class="link-input create-link-input" type="text" name="title"/></div><br>
+				<div>URL: <input class="link-input create-link-input" type="text" name="url"/></div><br>
+				<br>
+				<button class="button1" id="button-dark" type="submit" value="Submit">Submit</button>
+			</form>
+		</div>
+	</div>
 {% endblock %}

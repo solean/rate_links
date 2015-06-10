@@ -10,18 +10,18 @@ def index(request):
 		query.strip()
 		context_dict['query'] = query
 
-		if query.startswith('http://'):
-			link = Link.objects.all().filter(url=query)
+		if query.startswith('http://') or query.startswith('https://'):
+			link = find_link(query)
 		else:
 			query = 'http://' + query
-			link = Link.objects.all().filter(url=query)
+			link = find_link(query)
 
 		if not link:
 			return HttpResponseRedirect('create_link')
 
 		link = link[0]
 		context_dict['link'] = link
-		return render(request, 'rate/index2.html', context_dict)
+		return render(request, 'rate/link.html', context_dict)
 
 	highest_rated = Link.objects.all().order_by('-avg_rating')[:10]
 	most_liked = Link.objects.all().order_by('-likes')[:10]
@@ -29,6 +29,18 @@ def index(request):
 	context_dict['most_liked'] = most_liked
 
 	return render(request, 'rate/index2.html', context_dict)
+
+
+def find_link(query):
+	link = Link.objects.all().filter(url=query)
+	if not link:
+		if query.endswith('/'):
+			query = query[:-1]
+			link = Link.objects.all().filter(url=query)
+		else:
+			query = query + '/'
+			link = Link.objects.all().filter(url=query)
+	return link
 
 
 def about(request):
