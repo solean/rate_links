@@ -17,24 +17,23 @@
 	</div>
 {% endblock %}
 
-{% block content_left %}
-	<div id="white-left">
-		<h2 class="list-header">Highest Rated Links</h2>
-		<ul id="link-list">
-		{% for link in highest_rated %}
-			<li class="{% cycle 'list-el-one' 'list-el-two' %}">{{ link.avg_rating }} - <b class="li-border"><a href="/rate/link/{{ link.title_slug }}">{{ link.title }}</a></b></li>
-		{% endfor %}
-		</ul>
-	</div>
-{% endblock %}
-
-{% block content_right %}
-	<div id="blue-right">
-		<h2 class="list-header">Most Liked Links</h2>
-		<ul id="link-list">
-		{% for link in most_liked %}
-			<li class="{% cycle 'list-el-one' 'list-el-three' %}">{{ link.likes }} - <b class="li-border"><a href="/rate/link/{{ link.title_slug }}">{{ link.title }}</a></b></li>
-		{% endfor %}
-		</ul>
+{% block body %}
+	<div class="second">
+		<div id="white-left">
+			<h2 class="list-header">Highest Rated Links</h2>
+			<ul id="link-list">
+			{% for link in highest_rated %}
+				<li class="{% cycle 'list-el-one' 'list-el-two' %}">{{ link.avg_rating }} - <b class="li-border"><a href="/rate/link/{{ link.title_slug }}">{{ link.title }}</a></b></li>
+			{% endfor %}
+			</ul>
+		</div>
+		<div id="blue-right">
+			<h2 class="list-header">Most Liked Links</h2>
+			<ul id="link-list">
+			{% for link in most_liked %}
+				<li class="{% cycle 'list-el-one' 'list-el-three' %}">{{ link.likes }} - <b class="li-border"><a href="/rate/link/{{ link.title_slug }}">{{ link.title }}</a></b></li>
+			{% endfor %}
+			</ul>
+		</div>
 	</div>
 {% endblock %}

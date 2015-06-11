@@ -11,8 +11,8 @@
 
 #link-submit {
 	font-family: 'Raleway';
-	font-size: 18px;
-	height: 30px;
+	font-size: 20px;
+	height: 32px;
 	width: 100px;
 	color: white;
 	border-style: solid;
@@ -95,73 +95,5 @@
 .li-active {
 	text-align: right;
 	padding-right: 10px;
-}
-
-#title-stuff {
-	padding-bottom: 5%;
-}
-
-#title-header {
-	font-family: Gill Sans;
-	font-weight: 400;
-	font-size: 67px;
-	margin-bottom: 0;
-}
-
-.circle {
-	float: left;
-	/*margin: auto;*/
-	margin-left: 10%;
-	margin-right: 0;
-	padding-right: 0;
-	height: 100px;
-	width: 100px;
-	border-radius: 50%;
-	background-color: transparent;
-	border-style: solid;
-	border-color: white;
-}
-
-#circle-rating {
-	font-size: 36px;
-	font-style: italic;
-	margin-top: 25%;
-}
-
-#rating-input {
-	float: left;
-	height: auto;
-	margin-left: 12%;
-	margin-top: 6%;
-}
-
-#rating-input label {
-	font-size: 20px;
-}
-
-#rate-button-container {
-	float: left;
-	margin-left: 5%;
-}
-
-#rate-button {
-	margin-top: 50%;
-}
-
-#like-stuff {
-	margin-top: 30%;
-}
-
-#like-rank {
-	font-family: Gill Sans;
-	font-size: 36px;
-	font-style: italic;
-	font-weight: 500;
-	margin-bottom: 0px;
-}
-
-#num-likes {
-	font-size: 16px;
-	margin-bottom: 2%;
 }
 
