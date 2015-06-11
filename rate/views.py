@@ -17,7 +17,7 @@ def index(request):
 			link = find_link(query)
 
 		if not link:
-			return HttpResponseRedirect('create_link')
+			return render(request, 'rate/create_link.html', context_dict)
 
 		link = link[0]
 		context_dict['link'] = link

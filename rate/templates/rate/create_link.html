@@ -12,7 +12,7 @@
 			<form method="post" action="/rate/create_link/">
 				{% csrf_token %}
 				<div>Title: <input class="link-input create-link-input" type="text" name="title"/></div><br>
-				<div>URL: <input class="link-input create-link-input" type="text" name="url"/></div><br>
+				<div>URL: <input class="link-input create-link-input" type="text" name="url" value="{{ query }}"/></div>
 				<br>
 				<button class="button1" id="button-dark" type="submit" value="Submit">Submit</button>
 			</form>
